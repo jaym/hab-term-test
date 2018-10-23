@@ -1,0 +1,18 @@
+#!{{pkgPathFor "core/bash"}}/bin/bash
+
+exec 2>&1
+
+trap "trapit" SIGINT SIGTERM
+
+trapit() {
+    echo "TRAPPING IT"
+    sleep 2
+    echo "exiting"
+    exit 0
+}
+
+while :
+do
+    echo "running"
+    sleep 5
+done
